@@ -4,7 +4,7 @@ const Navbar = () => {
     const styleNav = ({ isActive }) => {
         return {
             fontWeight: isActive ? "bold" : "",
-            color: isActive ? "#4D869C" : ""
+            color: isActive ? "#1E429F" : ""
         };
     }
     return (
