@@ -45,7 +45,7 @@ const Hero = () => {
             </svg>
             <div className="absolute top-0 left-0 w-full">
                 <div className="flex flex-col inset-16 items-center h-[90vh] justify-center text-white text-center max-w-3xl mx-auto pt-10 p-4">
-                    <h1 className="text-5xl font-bold mb-4 text-blue-800">Welcome to Our Survey</h1>
+                    <h1 className="text-5xl font-bold mb-4 text-blue-800">Welcome to Our SurveySky</h1>
                     <p className="text-xl mb-8 text-black">  We value your feedback and strive to improve our services. Your opinions are essential for us to
                         understand what we are doing well and where we can make improvements. Please take a few moments
                         to complete this survey and share your thoughts.</p>
