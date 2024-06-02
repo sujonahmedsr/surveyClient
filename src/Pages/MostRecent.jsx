@@ -1,17 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const MostRecent = () => {
-    const [survey, setSurvey] = useState([])
-    const sortByVote = survey.sort((a, b) =>  a.created_at - b.created_at)
-    // problem 1 solve by database with sort function
+    const axiosPublic = useAxiosPublic()
+    const {data: surveyLatest = []} = useQuery({
+        queryKey: ['surveyLatest'],
+        queryFn: async()=>{
+            const res = await axiosPublic.get('/survey')
+            return res.data
+        }
+    })
+    surveyLatest.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/survey')
-            .then(res => {
-                setSurvey(res.data);
-            })
-    }, [])
     return (
         <div>
             <div className="text-center pt-20">
@@ -20,7 +20,7 @@ const MostRecent = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 container mx-auto">
                 {
-                    sortByVote.slice(0, 6).map(item =>
+                    surveyLatest.slice(0, 6).map(item =>
                         <div key={item._id} className="max-w-sm mx-auto relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-300">
                             <a href="#">
                                 <img className="rounded-t-lg" src={item.image} alt="" />
