@@ -6,7 +6,7 @@ const Prizing = () => {
                 <h1 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl text-blue-800">Choose a plan that works for you</h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                <div className="border hover:border-blue-800 transition duration-300 p-5 rounded-lg relative overflow-hidden">
+                <div className="border border-blue-300 hover:border-blue-800 transition duration-300 p-5 rounded-lg relative overflow-hidden">
                     <div className="text-center space-y-4">
                         <h1 className="text-3xl font-bold text-gray-800">Team Advantage</h1>
                         <p className="text-gray-500"><span className="text-2xl text-blue-800 font-semibold">$25</span>/ user / month</p>
@@ -34,7 +34,7 @@ const Prizing = () => {
                         <li>Quizzes with custom feedback</li>
                     </ul>
                 </div>
-                <div className="border hover:border-sky-600 transition duration-300 p-5 rounded-lg relative overflow-hidden">
+                <div className="border border-sky-300 hover:border-sky-600 transition duration-300 p-5 rounded-lg relative overflow-hidden">
                     <div className="text-center space-y-4">
                         <h1 className="text-3xl font-bold text-gray-800">Team Premier
                         </h1>
@@ -63,7 +63,7 @@ const Prizing = () => {
                         <li>Quizzes with custom feedback</li>
                     </ul>
                 </div>
-                <div className="border hover:border-green-600  transition duration-300 p-5 rounded-lg relative overflow-hidden flex-grow">
+                <div className="border border-green-300 hover:border-green-600  transition duration-300 p-5 rounded-lg relative overflow-hidden flex-grow">
                     <div className="text-center space-y-4">
                         <h1 className="text-3xl font-bold text-gray-800">Enterprise</h1>
 
