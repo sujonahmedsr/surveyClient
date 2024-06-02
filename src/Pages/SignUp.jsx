@@ -1,61 +1,47 @@
-// import { Link, Navigate } from "react-router-dom";
-// import { updateProfile } from "firebase/auth";
-// import { auth } from "../firebase/firebase";
+import { Link, Navigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 // import useAuth from "../AuthProvider/useAuth";
-// import { toast } from "react-toastify";
-// import { useState } from "react";
-// import Swal from "sweetalert2";
-// import offerImg from '../assets/sliders/slider1.jpg'
-
+import { toast } from "react-toastify";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { auth } from "../firebase/Firebase";
+import useAuth from "../AuthProvider/useAuth";
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
-    // const { createUser, user,  loading } = useAuth()
-    // const [error, setError] = useState(null)
-    // const handleCreateUser = e => {
-    //     e.preventDefault()
-    //     const form = e.target;
-    //     const name = form.name.value;
-    //     const email = form.email.value;
-    //     const photoUrl = form.photoUrl.value;
-    //     const password = form.password.value;
-    //     if (password.length < 6) {
-    //         return setError('Password must be 6 character')
-    //     }
-    //     if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(password)) {
-    //         setError('your password should be one uppercase and one lowercase and at least one numer')
-    //         return
-    //     }
+    const { createUser, user,  loading } = useAuth()
+    
+    const [error, setError] = useState(null)
+    const handleCreateUser = e => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        if (password.length < 6) {
+            return setError('Password must be 6 character')
+        }
+        if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(password)) {
+            setError('your password should be one uppercase and one lowercase and at least one numer')
+            return
+        }
 
-    //     createUser(email, password)
-    //         .then(res => {
-    //             console.log(res.user);
-    //             updateProfile(auth.currentUser, {
-    //                 displayName: name,
-    //                 photoURL: photoUrl
-    //             })
-    //             Swal.fire({
-    //                 title: "Offers!",
-    //                 text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
-    //                 imageUrl: offerImg,
-    //                 imageWidth: 400,
-    //                 imageHeight: 400,
-    //                 imageAlt: "Custom image"
-    //               });
-    //             toast('sign up successfully')
-    //         })
-    //         .catch(error => {
-    //             console.log(error.message);
-    //         })
-    // }
-
-    // if(user || loading) return <Navigate to={'/'}></Navigate>
+        createUser(email, password)
+            .then(res => {
+                console.log(res.user);
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                })
+                toast('sign up successfully')
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+    if(user) return <Navigate to={'/'}></Navigate>
     return (
         <div className="py-24 px-3">
-            <form className=" container mx-auto px-6 py-8 md:px-8 max-w-lg border shadow-xl">
+            <form onSubmit={handleCreateUser} className=" container mx-auto px-6 py-8 md:px-8 max-w-lg border shadow-xl">
             <div className="text-center">
                     <Link to={'/'} className='text-2xl font-black text-blue-800 '>SurveySky <span className="font-medium">(Home)</span></Link>
                 </div>
@@ -81,9 +67,9 @@ const SignUp = () => {
                         <p onClick={() => setShow(!show)} className="absolute top-1/4 right-3 cursor-pointer text-2xl">{show ? <FaRegEye /> : <FaRegEyeSlash />}</p>
                     </div>
                 </div>
-                {/* {
+                {
                     error && <p className='text-red-600 font-semibold pt-3'>{error}</p>
-                } */}
+                }
                 <div className="mt-6">
                     <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-800 rounded-lg hover:bg-blue-700">
                         Sign Up

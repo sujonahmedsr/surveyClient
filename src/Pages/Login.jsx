@@ -1,75 +1,54 @@
-// import { Link, Navigate, useNavigate } from 'react-router-dom';
-// import loginImg from '../assets/Login.gif'
-// import offerImg from '../assets/sliders/slider1.jpg'
-// import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-// import { auth } from '../firebase/firebase';
-// import useAuth from '../AuthProvider/useAuth';
-// import { toast } from 'react-toastify';
-// import { useState } from 'react';
-// import Swal from 'sweetalert2'
-
-import { useState } from "react";
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { auth } from '../firebase/Firebase';
+import useAuth from '../AuthProvider/useAuth';
+
 
 const Login = () => {
     const [show, setShow] = useState(false);
-    // const [error , setError] = useState(null)
-    // const { signInMethod, user, loading } = useAuth()
-    // const navigate = useNavigate()
-    // const handleSignInMethod = e => {
-    //     e.preventDefault()
-    //     const from = e.target;
-    //     const email = from.email.value;
-    //     const password = from.password.value;
+    const [error , setError] = useState(null)
+    const { signInMethod, user } = useAuth()
+    const navigate = useNavigate()
+    const handleSignInMethod = e => {
+        e.preventDefault()
+        const from = e.target;
+        const email = from.email.value;
+        const password = from.password.value;
 
-    //     signInMethod(email, password)
-    //         .then(res => {
-    //             console.log(res.user);
-    //             navigate(location?.state ? location.state : '/')
-    //             Swal.fire({
-    //                 title: "Offers!",
-    //                 text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
-    //                 imageUrl: offerImg,
-    //                 imageWidth: 400,
-    //                 imageHeight: 400,
-    //                 imageAlt: "Custom image"
-    //               });
-    //             toast.success('login successfully')
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //             return setError('Invalid email or password')
-    //         })
-    // }
+        signInMethod(email, password)
+            .then(res => {
+                console.log(res.user);
+                navigate(location?.state ? location.state : '/')
+                toast.success('login successfully')
+            })
+            .catch(error => {
+                console.log(error);
+                return setError('Invalid email or password')
+            })
+    }
 
 
-    // const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider()
 
-    // const signInWithGoogle = () => {
-    //     signInWithPopup(auth, googleProvider)
-    //         .then(res => {
-    //             console.log(res.user);
-    //             navigate(location?.state ? location.state : '/')
-    //             Swal.fire({
-    //                 title: "Offers!",
-    //                 text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
-    //                 imageUrl: offerImg,
-    //                 imageWidth: 400,
-    //                 imageHeight: 400,
-    //                 imageAlt: "Custom image"
-    //               });
-    //             toast.success('login successfully with google account')
-    //         })
-    //         .catch(error => console.log(error))
-    // }
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(res => {
+                console.log(res.user);
+                navigate(location?.state ? location.state : '/')
+                toast.success('login successfully with google account')
+            })
+            .catch(error => console.log(error))
+    }
 
-    // if(user || loading) return <Navigate to={'/'}></Navigate>
+    if(user) return <Navigate to={'/'}></Navigate>
 
     return (
         <div className="flex items-center flex-col lg:flex-row justify-center container mx-auto py-24 px-3">
 
-            <form className="px-6 py-8 md:px-8 max-w-lg w-full border shadow-xl">
+            <form onSubmit={handleSignInMethod} className="px-6 py-8 md:px-8 max-w-lg w-full border shadow-xl">
                 <div className="text-center">
                     <Link to={'/'} className='text-2xl font-black text-blue-800 '>SurveySky <span className="font-medium">(Home)</span></Link>
                 </div>
@@ -92,9 +71,9 @@ const Login = () => {
                     </div>
                 </div>
 
-                {/* {
+                {
                     error && <p className='pt-5 text-red-700'>{error}</p>
-                } */}
+                }
 
                 <div className="mt-6">
                     <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform rounded-lg bg-blue-800 hover:bg-blue-700">
@@ -102,7 +81,7 @@ const Login = () => {
                     </button>
                 </div>
 
-                <a href="#" className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <a href="#" onClick={signInWithGoogle} className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <div className="px-4 py-2">
                         <svg className="w-6 h-6" viewBox="0 0 40 40">
                             <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#FFC107" />
