@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Customer Satisfaction Survey",
+        "description": "Survey on customer satisfaction with our products.",
+        "votes": 120,
+        "category": "Customer Satisfaction",
+        "created_at": "2024-05-20",
+        "details": {
+            "target_audience": "Current Customers",
+            "duration": "5 minutes",
+            "questions": 10
+        }
+    },
+    {
+        "id": 2,
+        "image": "https://i.ibb.co/KF7q1Xy/busines.webp",
+        "title": "Employee Engagement Survey",
+        "description": "Survey on employee engagement and satisfaction.",
+        "votes": 95,
+        "category": "Employee Engagement",
+        "created_at": "2024-05-22",
+        "details": {
+            "target_audience": "Company Employees",
+            "duration": "15 minutes",
+            "questions": 20
+        }
+    },
+    {
+        "id": 3,
+        "image": "https://i.ibb.co/3SFDQyD/employ.webp",
+        "title": "Market Research Survey",
+        "description": "Survey to understand market trends and consumer behavior.",
+        "votes": 150,
+        "category": "Market Research",
+        "created_at": "2024-05-25",
+        "details": {
+            "target_audience": "General Consumers",
+            "duration": "10 minutes",
+            "questions": 15
+        }
+    },
+    {
+        "id": 4,
+        "image": "https://i.ibb.co/7W6LRS8/customer.webp",
+        "title": "Product Feedback Survey",
+        "description": "Survey to gather feedback on our latest product.",
+        "votes": 80,
+        "category": "Product Feedback",
+        "created_at": "2024-05-24",
+        "details": {
+            "target_audience": "Product Users",
+            "duration": "6 minutes",
+            "questions": 10
+        }
+    },
+    {
+        "id": 5,
+        "image": "https://i.ibb.co/x1c6xBk/faw1-1.webp",
+        "title": "Website Usability Survey",
+        "description": "Survey to assess the usability of our website.",
+        "votes": 110,
+        "category": "Usability",
+        "created_at": "2024-05-26",
+        "details": {
+            "target_audience": "Website Visitors",
+            "duration": "7 minutes",
+            "questions": 12
+        }
+    },
+    {
+        "id": 6,
+        "image": "https://i.ibb.co/HXz7rMh/faw2.webp",
+        "title": "Event Feedback Survey",
+        "description": "Survey to collect feedback on our recent event.",
+        "votes": 60,
+        "category": "Event Feedback",
+        "created_at": "2024-05-23",
+        "details": {
+            "target_audience": "Event Attendees",
+            "duration": "8 minutes",
+            "questions": 10
+        }
+    },
+    {
+        "id": 7,
+        "image": "https://i.ibb.co/XpHd5nF/faw3.webp",
+        "title": "Social Media Usage Survey",
+        "description": "Survey on social media usage patterns.",
+        "votes": 130,
+        "category": "Social Media",
+        "created_at": "2024-05-28",
+        "details": {
+            "target_audience": "Social Media Users",
+            "duration": "8 minutes",
+            "questions": 12
+        }
+    },
+    {
+        "id": 8,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Healthcare Experience Survey",
+        "description": "Survey on patient experience in our healthcare facility.",
+        "votes": 70,
+        "category": "Healthcare",
+        "created_at": "2024-05-29",
+        "details": {
+            "target_audience": "Patients",
+            "duration": "10 minutes",
+            "questions": 15
+        }
+    },
+    {
+        "id": 9,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Educational Program Survey",
+        "description": "Survey on the effectiveness of our educational programs.",
+        "votes": 65,
+        "category": "Education",
+        "created_at": "2024-05-30",
+        "details": {
+            "target_audience": "Students and Teachers",
+            "duration": "12 minutes",
+            "questions": 18
+        }
+    },
+    {
+        "id": 10,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Customer Service Survey",
+        "description": "Survey to evaluate the quality of customer service interactions.",
+        "votes": 105,
+        "category": "Customer Satisfaction",
+        "created_at": "2024-05-21",
+        "details": {
+            "target_audience": "Customers",
+            "duration": "5 minutes",
+            "questions": 8
+        }
+    },
+    {
+        "id": 11,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Remote Work Experience Survey",
+        "description": "Survey to understand employee experiences with remote work.",
+        "votes": 85,
+        "category": "Employee Engagement",
+        "created_at": "2024-05-19",
+        "details": {
+            "target_audience": "Remote Employees",
+            "duration": "10 minutes",
+            "questions": 12
+        }
+    },
+    {
+        "id": 12,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Product Development Survey",
+        "description": "Survey to gather insights for future product development.",
+        "votes": 90,
+        "category": "Product Feedback",
+        "created_at": "2024-05-18",
+        "details": {
+            "target_audience": "Current Customers",
+            "duration": "9 minutes",
+            "questions": 11
+        }
+    },
+    {
+        "id": 13,
+        "image": "https://i.ibb.co/QdVypKX/edu.webp",
+        "title": "Website Content Survey",
+        "description": "Survey to evaluate the quality and relevance of website content.",
+        "votes": 75,
+        "category": "Usability",
+        "created_at": "2024-05-17",
+        "details": {
+            "target_audience": "Website Users",
+            "duration": "7 minutes",
+            "questions": 9
+        }
+    },
+    {
+        "id": 14,
+        "image": "https://i.ibb.co/KF7q1Xy/busines.webp",
+        "title": "Tech Conference Feedback Survey",
+        "description": "Survey to gather feedback from attendees of our tech conference.",
+        "votes": 115,
+        "category": "Event Feedback",
+        "created_at": "2024-05-27",
+        "details": {
+            "target_audience": "Conference Attendees",
+            "duration": "10 minutes",
+            "questions": 14
+        }
+    },
+    {
+        "id": 15,
+        "image": "https://i.ibb.co/7W6LRS8/customer.webp",
+        "title": "Mobile App Usability Survey",
+        "description": "Survey to assess the usability of our mobile app.",
+        "votes": 125,
+        "category": "Usability",
+        "created_at": "2024-05-16",
+        "details": {
+            "target_audience": "App Users",
+            "duration": "6 minutes",
+            "questions": 8
+        }
+    }
+]

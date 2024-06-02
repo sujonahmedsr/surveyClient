@@ -4,6 +4,7 @@ const Industry = () => {
         <div className="pt-20">
             <section className="p-6">
                 <div className="container p-4 mx-auto text-center">
+                <p className="p-2 text-sm font-medium tracking-wider text-center uppercase text-blue-800">-- Trusted --</p>
                     <h2 className="text-4xl font-bold text-blue-800 sm:text-5xl">Trusted by the industry leaders</h2>
                 </div>
                 <div className="container flex flex-wrap justify-center mx-auto text-gray-400 pt-10">

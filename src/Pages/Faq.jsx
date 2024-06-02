@@ -1,6 +1,6 @@
 const Faq = () => {
     return (
-        <div className="pt-20">
+        <div className="pt-10">
             <section className="">
                 <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
                     <p className="p-2 text-sm font-medium tracking-wider text-center uppercase text-blue-800">-- How it works --</p>

@@ -53,7 +53,7 @@ const Navbar = () => {
                             <NavLink to={'/service'} style={styleNav}>
                                 <p  className="block py-2 px-3 rounded">Services</p>
                             </NavLink>
-                            <NavLink to={'/prizing'} style={styleNav}>
+                            <NavLink to={'/Prizing'} style={styleNav}>
                                 <p  className="block py-2 px-3 rounded">Pricing</p>
                             </NavLink>
                             <NavLink to={'/contact'} style={styleNav}>
