@@ -4,6 +4,8 @@ import Home from "../Pages/Home";
 import ErrorPage from "../Pages/ErrorPage";
 import Prizing from "../Pages/Prizing";
 import SurveyDetails from "../Pages/SurveyDetails";
+import Login from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
 
 export const Routes = createBrowserRouter([{
     path: '/',
@@ -13,6 +15,14 @@ export const Routes = createBrowserRouter([{
         {
             path: '/',
             element: <Home></Home>
+        },
+        {
+            path: '/Login',
+            element: <Login></Login>
+        },
+        {
+            path: '/SignUp',
+            element: <SignUp></SignUp>
         },
         {
             path: '/sureveyDetails/:id',
