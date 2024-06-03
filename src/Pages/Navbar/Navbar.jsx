@@ -68,11 +68,11 @@ const Navbar = () => {
                             <NavLink to={'/'} style={styleNav}>
                                 <p className="block py-2 px-3 rounded">Home</p>
                             </NavLink>
+                            <NavLink to={'/AllSurvey'} style={styleNav}>
+                                <p className="block py-2 px-3 rounded">Surveys</p>
+                            </NavLink>
                             <NavLink to={'/about'} style={styleNav}>
                                 <p className="block py-2 px-3 rounded">About</p>
-                            </NavLink>
-                            <NavLink to={'/service'} style={styleNav}>
-                                <p className="block py-2 px-3 rounded">Services</p>
                             </NavLink>
                             <NavLink to={'/Prizing'} style={styleNav}>
                                 <p className="block py-2 px-3 rounded">Pricing</p>

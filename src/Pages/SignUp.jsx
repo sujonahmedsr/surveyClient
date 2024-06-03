@@ -9,7 +9,7 @@ import useAuth from "../AuthProvider/useAuth";
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
-    const { createUser, user,  loading } = useAuth()
+    const { createUser, user } = useAuth()
     
     const [error, setError] = useState(null)
     const handleCreateUser = e => {
