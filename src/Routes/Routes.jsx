@@ -27,7 +27,7 @@ export const Routes = createBrowserRouter([{
         },
         {
             path: '/AllSurvey',
-            element: <AllSurvey></AllSurvey>
+            element: <AllSurvey></AllSurvey>,
         },
         {
             path: '/sureveyDetails/:id',

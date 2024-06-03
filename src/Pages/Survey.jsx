@@ -1,18 +1,10 @@
 
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
+import useSurvey from "../Hooks/useSurvey";
 
 const Survey = () => {
-    const axiosPublic = useAxiosPublic()
-    const { data: survey = [] } = useQuery({
-        queryKey: ['surveys'],
-        queryFn: async()=>{
-            const res = await axiosPublic.get('/survey')
-            return res.data
-        }
-    })
-    const sortByVote = survey.sort((a, b) => b.votes - a.votes)
+    const [survey] = useSurvey()
+    survey.sort((a, b) => b.votes - a.votes)
     return (
         <>
             <div className="text-center pt-20">
@@ -21,7 +13,7 @@ const Survey = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 container mx-auto">
                 {
-                    sortByVote.slice(0,6).map(item =>
+                    survey.slice(0,6).map(item =>
                         <Link key={item._id} className="max-w-sm mx-auto relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-300">
 
                             <img className="rounded-t-lg" src={item.image} alt="" />

@@ -1,61 +1,65 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import useSurvey from "../Hooks/useSurvey";
+import { FadeLoader } from "react-spinners";
+import { useEffect, useState } from "react";
 
 const AllSurvey = () => {
-    const axiosPublic = useAxiosPublic()
-    const { data: allSurvey = [], isLoading, refetch } = useQuery({
-        queryKey: ['allSurveys'],
-        queryFn: async () => {
-            const res = await axiosPublic.get('/survey')
-            return res.data
-        }
-    })
+    const [survey, isPending] = useSurvey()
+    const [surveySort, setSurveySort] = useState([])
+    useEffect(() => {
+        setSurveySort(survey)
+    }, [survey])
 
-    console.log(allSurvey);
-    const [sureveys, setSurveys] = useState(allSurvey)
-    console.log(sureveys);
-    const categorys = [
-        'Customer Satisfaction',
-        'Employee Engagement',
-        'Market Research',
-        'Product Feedback',
-        'Usability',
-        'Event Feedback',
-        'Social Media',
+    const handleSort = () => {
+        const result = [...surveySort].sort((a, b) => b.votes - a.votes)
+        setSurveySort(result)
+    }
+
+
+    const category = [
+        "Market Research",
+        "Social Media",
+        "Customer Satisfaction",
+        "Employee Engagement",
+        "Product Feedback",
+        "Usability",
         "Healthcare",
-        "Education"
+        "Education",
+        "Event Feedback",
     ]
 
-    // const handleCategory = category =>{
-    //     if(isLoading) return <p>loaging..</p>
-    //     const result = allSurvey.filter(survey => console.log(survey.category == category))
-    //     setSurveys(result)
-    // }
-
+    const hanldeCategory = btn => {
+        const result = survey.filter(item => item.category === btn)
+        setSurveySort(result)
+    }
+    const hanldeAll = () => {
+        setSurveySort(survey)
+    }
     return (
         <div className="py-32 px-4 container mx-auto">
-            <div className="flex flex-wrap gap-4 items-center py-5">
+            {
+                isPending && <div className="text-center w-full mx-auto">
+                    <FadeLoader color="#36d7b7" width={15} />
+                </div>
+            }
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-6">
+                <button className="bg-blue-200 px-2 py-1 shadow-xl hover:bg-blue-300" onClick={hanldeAll}>
+                    All
+                </button>
                 {
-                    isLoading && <p>loading...</p>
+                    category.map((btn, id) => <NavLink key={id}>
+                        <button className="bg-blue-200 px-2 py-1 shadow-xl hover:bg-blue-300" onClick={() => hanldeCategory(btn)}>
+                            {btn}
+                        </button>
+                    </NavLink>)
                 }
-            <button   className="px-3 py-1 md:px-4 md:py-2 border border-blue-600">All</button>
-                {
-                    categorys.map( (btn, id) => <button className="px-3 py-1 md:px-4 md:py-2 border border-blue-600 font-semibold rounded flex" key={id}>{btn}</button>
-                )
-                }
-            </div>
-            <div className="float-right py-5">
-                <select>
-                    <option>Sort By</option>
-                    <option value="Date">Date</option>
-                    <option value="Vote">Vote</option>
-                </select>
+                <div className="float-right">
+                <button className="bg-blue-800 text-white px-2 py-1 shadow-xl hover:bg-blue-700" onClick={handleSort}>Sort By Votes</button>
+                </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 container mx-auto">
                 {
-                    allSurvey.map(item =>
+                    surveySort.map(item =>
                         <Link key={item._id} className="max-w-sm mx-auto relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-300">
 
                             <img className="rounded-t-lg" src={item.image} alt="" />
