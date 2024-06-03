@@ -77,7 +77,7 @@ const Navbar = () => {
                             <NavLink to={'/Prizing'} style={styleNav}>
                                 <p className="block py-2 px-3 rounded">Pricing</p>
                             </NavLink>
-                            <NavLink to={'/contact'} style={styleNav}>
+                            <NavLink to={'/ContactUs'} style={styleNav}>
                                 <p className="block py-2 px-3 rounded">Contact</p>
                             </NavLink>
 

@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+import useAuth from "../AuthProvider/useAuth";
 
 const Prizing = () => {
+    const { user } = useAuth()
     return (
         <div className="container mx-auto px-4 pt-32 pb-5">
             <div className="text-center ">
@@ -11,7 +14,19 @@ const Prizing = () => {
                         <h1 className="text-3xl font-bold text-gray-800">Team Advantage</h1>
                         <p className="text-gray-500"><span className="text-2xl text-blue-800 font-semibold">$25</span>/ user / month</p>
                         <p className="text-gray-500">Starting at 3 users, billed annually</p>
-                        <button className="w-full py-3 rounded-lg bg-blue-800 text-white font-bold text-xl">SIGN UP</button>
+                        {
+                            user ? <Link>
+                                <button className="w-full mt-4 py-3 rounded-lg bg-blue-800 text-white font-bold text-xl">
+                                    BUY NOW
+                                </button>
+                            </Link>
+                                :
+                                <Link>
+                                    <button className="w-full py-3 rounded-lg bg-blue-800 text-white font-bold text-xl">
+                                        SIGN UP
+                                    </button>
+                                </Link>
+                        }
                     </div>
                     <div className="absolute top-5 -right-10 bg-blue-800 text-white font-semibold rotate-45 px-10 py-2">
                         <h1>Save 25%</h1>
@@ -40,7 +55,20 @@ const Prizing = () => {
                         </h1>
                         <p className="text-gray-500"><span className="text-2xl text-sky-600 font-semibold">$75</span>/ user / month</p>
                         <p className="text-gray-500">Starting at 3 users, billed annually</p>
-                        <button className="w-full py-3 rounded-lg bg-sky-600 text-white font-bold text-xl">SIGN UP</button>
+                   
+                        {
+                            user ? <Link>
+                                <button className="w-full mt-4 py-3 rounded-lg bg-sky-600 text-white font-bold text-xl">
+                                    BUY NOW
+                                </button>
+                            </Link>
+                                :
+                                <Link>
+                                    <button className="w-full py-3 rounded-lg bg-sky-600 text-white font-bold text-xl">
+                                        SIGN UP
+                                    </button>
+                                </Link>
+                        }
                     </div>
                     <div className="absolute top-5 -right-10 bg-sky-600 text-white font-semibold rotate-45 px-10 py-2">
                         <h1>Save 25%</h1>
@@ -90,7 +118,7 @@ const Prizing = () => {
                 </div>
             </div>
             <div className="pt-5 text-sm text-gray-500 space-y-3">
-               <p> *Displayed pricing represents a 20% or more savings per user per month compared to individual Advantage and Premier plans</p>
+                <p> *Displayed pricing represents a 20% or more savings per user per month compared to individual Advantage and Premier plans</p>
                 <p>**$0.15 per additional response. SurveyMonkey Audience responses sold separately</p>
                 <p>***Add-on features available with Enterprise plan must be purchased separately</p>
             </div>

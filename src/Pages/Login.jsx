@@ -43,7 +43,7 @@ const Login = () => {
             .catch(error => console.log(error))
     }
 
-    if(user) return <Navigate to={'/'}></Navigate>
+    if(user) return <Navigate to={location?.state ? location.state : '/'}></Navigate>
 
     return (
         <div className="flex items-center flex-col lg:flex-row justify-center container mx-auto py-24 px-3">

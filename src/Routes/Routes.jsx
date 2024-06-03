@@ -7,6 +7,8 @@ import SurveyDetails from "../Pages/SurveyDetails";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import AllSurvey from "../Pages/AllSurvey";
+import ContactUs from "../Pages/ContactUs";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const Routes = createBrowserRouter([{
     path: '/',
@@ -36,6 +38,13 @@ export const Routes = createBrowserRouter([{
         {
             path: '/Prizing',
             element: <Prizing></Prizing>
+        },
+        {
+            path: '/ContactUs',
+            element: <PrivateRoutes>
+                <ContactUs></ContactUs>
+            </PrivateRoutes>
+
         }
     ]
 }])
