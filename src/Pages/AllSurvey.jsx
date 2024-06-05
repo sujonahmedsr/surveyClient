@@ -15,7 +15,6 @@ const AllSurvey = () => {
         setSurveySort(result)
     }
 
-
     const category = [
         "Market Research",
         "Social Media",
@@ -35,6 +34,10 @@ const AllSurvey = () => {
     const hanldeAll = () => {
         setSurveySort(survey)
     }
+    const handleDate = () => {
+        const result = [...survey].sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        setSurveySort(result)
+    }
     return (
         <div className="py-32 px-4 container mx-auto">
             {
@@ -53,15 +56,15 @@ const AllSurvey = () => {
                         </button>
                     </NavLink>)
                 }
-                <div className="float-right">
-                <button className="bg-blue-800 text-white px-2 py-1 shadow-xl hover:bg-blue-700" onClick={handleSort}>Sort By Votes</button>
+                <div className="float-right space-x-4">
+                    <button className="bg-blue-800 text-white px-2 py-1 shadow-xl hover:bg-blue-700" onClick={handleSort}>Sort By Votes</button>
+                    <button className="bg-blue-800 text-white px-2 py-1 shadow-xl hover:bg-blue-700" onClick={handleDate}>Sort By Dates</button>
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 container mx-auto">
                 {
                     surveySort.map(item =>
-                        <Link key={item._id} className="max-w-sm mx-auto relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-300">
-
+                        <Link to={`/sureveyDetails/${item._id}`} key={item._id} className="max-w-sm mx-auto relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-300">
                             <img className="rounded-t-lg" src={item.image} alt="" />
                             <div className="absolute top-0 left-0 bg-blue-800 px-3 py-2 text-white font-semibold">
                                 <p>Votes: {item.votes}</p>

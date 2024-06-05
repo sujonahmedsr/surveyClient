@@ -118,7 +118,6 @@ const Faq = () => {
                                 We offer a range of support options, including a comprehensive help center, video tutorials, and customer support via email and chat. Our team is dedicated to helping you get the most out of Surveysky.
                             </p>
                         </details>
-                        <hr className="border-gray-200 " />
                     </div>
                 </div>
             </section>

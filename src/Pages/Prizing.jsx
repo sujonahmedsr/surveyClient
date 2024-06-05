@@ -55,7 +55,7 @@ const Prizing = () => {
                         </h1>
                         <p className="text-gray-500"><span className="text-2xl text-sky-600 font-semibold">$75</span>/ user / month</p>
                         <p className="text-gray-500">Starting at 3 users, billed annually</p>
-                   
+
                         {
                             user ? <Link>
                                 <button className="w-full mt-4 py-3 rounded-lg bg-sky-600 text-white font-bold text-xl">
@@ -96,7 +96,9 @@ const Prizing = () => {
                         <h1 className="text-3xl font-bold text-gray-800">Enterprise</h1>
 
                         <p className="text-gray-500">Powerful admin tools, integrations, and collaboration features for your organization.</p>
-                        <button className="w-full py-3 rounded-lg bg-green-600 text-white font-bold text-xl">CONTACT US</button>
+                        <Link to={'/ContactUs'}>
+                            <button className="w-full mt-5 py-3 rounded-lg bg-green-600 text-white font-bold text-xl">CONTACT US</button>
+                        </Link>
                     </div>
                     <ul className="text-sm space-y-3 list-disc pl-5 pt-10 text-gray-600">
                         <li>Survey sharing with fine control over who can view and edit</li>
@@ -119,11 +121,11 @@ const Prizing = () => {
             </div>
             <div className="pt-5 text-sm text-gray-500 space-y-3">
                 <p> *Displayed pricing represents a 20% or more savings per user per month compared to individual Advantage and Premier plans</p>
-                <p>**$0.15 per additional response. SurveyMonkey Audience responses sold separately</p>
+                <p>**$0.15 per additional response. SurveySky Audience responses sold separately</p>
                 <p>***Add-on features available with Enterprise plan must be purchased separately</p>
             </div>
             <div className="text-center my-5 py-5 text-xl font-bold text-blue-900 bg-blue-200">
-                <h1>SurveyMonkey Audience includes access to Paid Features</h1>
+                <h1>SurveySky Audience includes access to Paid Features</h1>
             </div>
         </div>
     );

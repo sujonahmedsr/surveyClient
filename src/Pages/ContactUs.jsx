@@ -1,13 +1,51 @@
 import useAuth from "../AuthProvider/useAuth";
 
 const ContactUs = () => {
-    const {user} = useAuth()
+    const { user } = useAuth()
     return (
         <div className="py-24 px-3 container mx-auto">
             <div className='relative'>
-                <img src={''} className='w-full h-72' alt="" />
-                <div className='absolute bottom-0 w-full h-full text-center py-10 bg-black bg-opacity-45 '>
-                    <h1 className="text-5xl text-center font-bold text-white">Feel Free To Contact Us</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-full h-[50vh]" preserveAspectRatio="none" viewBox="0 0 1440 560">
+                    <g mask="url(&quot;#SvgjsMask1416&quot;)" fill="none">
+                        <rect width="1440" height="560" x="0" y="0" fill="url(&quot;#SvgjsLinearGradient1417&quot;)"></rect>
+                        <path d="M1440 0L1093 0L1440 122.28z" fill="rgba(255, 255, 255, .1)"></path>
+                        <path d="M1093 0L1440 122.28L1440 221.8L920.11 0z" fill="rgba(255, 255, 255, .075)"></path>
+                        <path d="M920.11 0L1440 221.8L1440 333.91L851.28 0z" fill="rgba(255, 255, 255, .05)"></path>
+                        <path d="M851.28 0L1440 333.91L1440 487.40000000000003L555.65 0z" fill="rgba(255, 255, 255, .025)"></path>
+                        <path d="M0 560L213.53 560L0 502.77z" fill="rgba(0, 0, 0, .1)"></path>
+                        <path d="M0 502.77L213.53 560L216.44 560L0 432.42999999999995z" fill="rgba(0, 0, 0, .075)"></path>
+                        <path d="M0 432.43L216.44 560L859.1800000000001 560L0 430.8z" fill="rgba(0, 0, 0, .05)"></path>
+                        <path d="M0 430.8L859.1800000000001 560L861.7600000000001 560L0 156.65000000000003z" fill="rgba(0, 0, 0, .025)"></path>
+                    </g>
+                    <defs>
+                        <mask id="SvgjsMask1416">
+                            <rect width="1440" height="560" fill="#ffffff"></rect>
+                        </mask>
+                        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" gradientUnits="userSpaceOnUse" id="SvgjsLinearGradient1417">
+                            <stop stopColor="#0e2a47" offset="0"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.02"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.09"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.16"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.17"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.17"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.17"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.19"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.24"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.38"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.38"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.52"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.63"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.76"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.85"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.94"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.95"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="0.97"></stop>
+                            <stop stopColor="rgba(0, 100, 158, 0.22)" offset="1"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div className='absolute bottom-0 w-full h-full text-center py-10  inset-16'>
+                    <h1 className="text-5xl text-center font-bold text-blue-800">Feel Free To Contact Us</h1>
                 </div>
             </div>
 

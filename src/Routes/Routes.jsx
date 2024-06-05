@@ -34,6 +34,7 @@ export const Routes = createBrowserRouter([{
         {
             path: '/sureveyDetails/:id',
             element: <SurveyDetails></SurveyDetails>,
+            loader: ({params}) => fetch(`http://localhost:5000/survey/${params.id}`)
         },
         {
             path: '/Prizing',
@@ -44,7 +45,6 @@ export const Routes = createBrowserRouter([{
             element: <PrivateRoutes>
                 <ContactUs></ContactUs>
             </PrivateRoutes>
-
         }
     ]
 }])

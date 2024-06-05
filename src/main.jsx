@@ -17,12 +17,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
+
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
         <RouterProvider router={Routes} />
-      </AuthProvider>
-      <ToastContainer></ToastContainer>
-    </QueryClientProvider>
+
+        <ToastContainer></ToastContainer>
+      </QueryClientProvider>
+    </AuthProvider>
 
   </React.StrictMode>,
 )
