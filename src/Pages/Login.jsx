@@ -1,10 +1,11 @@
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { auth } from '../firebase/Firebase';
 import useAuth from '../AuthProvider/useAuth';
+import useAxiosPublic from '../Hooks/useAxiosPublic';
 
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
     const { signInMethod, user } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
+    const axiosPublic = useAxiosPublic()
 
     const handleSignInMethod = e => {
         e.preventDefault()
@@ -37,14 +39,25 @@ const Login = () => {
     const signInWithGoogle = () => {
         signInWithPopup(auth, googleProvider)
             .then(res => {
-                console.log(res.user);
+                const userInfo = {
+                    name: res.user.displayName,
+                    email: res.user.email
+                }
+                axiosPublic.post('/users', userInfo)
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err =>{
+                    console.log(err);
+                })
+
                 navigate(location?.state ? location.state : '/')
                 toast.success('login successfully with google account')
             })
             .catch(error => console.log(error))
     }
 
-    if(user) return 
+    if(user) return
 
     return (
         <div className="flex items-center flex-col lg:flex-row justify-center container mx-auto py-24 px-3">

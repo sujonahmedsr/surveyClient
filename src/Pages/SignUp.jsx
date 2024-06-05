@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 // import useAuth from "../AuthProvider/useAuth";
 import { toast } from "react-toastify";
@@ -6,9 +6,11 @@ import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { auth } from "../firebase/Firebase";
 import useAuth from "../AuthProvider/useAuth";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
+    const axiosPublic = useAxiosPublic()
     const { createUser, user } = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
@@ -30,6 +32,19 @@ const SignUp = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
+
+                const userInfo = {
+                    name : name,
+                    email : email
+                }
+                axiosPublic.post('/users', userInfo)
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err =>{
+                    console.log(err);
+                })
+
                 updateProfile(auth.currentUser, {
                     displayName: name,
                 })
