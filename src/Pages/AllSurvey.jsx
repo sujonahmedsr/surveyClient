@@ -10,11 +10,6 @@ const AllSurvey = () => {
         setSurveySort(survey)
     }, [survey])
 
-    const handleSort = () => {
-        const result = [...surveySort].sort((a, b) => b.votes - a.votes)
-        setSurveySort(result)
-    }
-
     const category = [
         "Market Research",
         "Social Media",
@@ -26,6 +21,11 @@ const AllSurvey = () => {
         "Education",
         "Event Feedback",
     ]
+
+    const handleSort = () => {
+        const result = [...surveySort].sort((a, b) => b.votes - a.votes)
+        setSurveySort(result)
+    }
 
     const hanldeCategory = btn => {
         const result = survey.filter(item => item.category === btn)
@@ -41,7 +41,7 @@ const AllSurvey = () => {
     return (
         <div className="py-32 px-4 container mx-auto">
             {
-                isPending && <div className="text-center w-full mx-auto">
+                isPending && <div className="absolute top-1/2 left-1/2">
                     <FadeLoader color="#36d7b7" width={15} />
                 </div>
             }

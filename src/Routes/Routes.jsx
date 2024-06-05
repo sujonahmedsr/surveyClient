@@ -33,7 +33,9 @@ export const Routes = createBrowserRouter([{
         },
         {
             path: '/sureveyDetails/:id',
-            element: <SurveyDetails></SurveyDetails>,
+            element: <PrivateRoutes>
+                <SurveyDetails></SurveyDetails>
+            </PrivateRoutes>,
             loader: ({params}) => fetch(`http://localhost:5000/survey/${params.id}`)
         },
         {

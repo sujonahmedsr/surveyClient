@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
@@ -12,17 +12,18 @@ const Login = () => {
     const [error , setError] = useState(null)
     const { signInMethod, user } = useAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+
     const handleSignInMethod = e => {
         e.preventDefault()
         const from = e.target;
         const email = from.email.value;
         const password = from.password.value;
-
         signInMethod(email, password)
             .then(res => {
                 console.log(res.user);
-                navigate(location?.state ? location.state : '/')
                 toast.success('login successfully')
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error);
@@ -43,7 +44,7 @@ const Login = () => {
             .catch(error => console.log(error))
     }
 
-    if(user) return <Navigate to={location?.state ? location.state : '/'}></Navigate>
+    if(user) return 
 
     return (
         <div className="flex items-center flex-col lg:flex-row justify-center container mx-auto py-24 px-3">

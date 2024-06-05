@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 // import useAuth from "../AuthProvider/useAuth";
 import { toast } from "react-toastify";
@@ -10,7 +10,8 @@ import useAuth from "../AuthProvider/useAuth";
 const SignUp = () => {
     const [show, setShow] = useState(false);
     const { createUser, user } = useAuth()
-    
+    const location = useLocation()
+    const navigate = useNavigate()
     const [error, setError] = useState(null)
     const handleCreateUser = e => {
         e.preventDefault()
@@ -33,12 +34,13 @@ const SignUp = () => {
                     displayName: name,
                 })
                 toast('sign up successfully')
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error.message);
             })
     }
-    if(user) return <Navigate to={'/'}></Navigate>
+    if(user) return 
     return (
         <div className="py-24 px-3">
             <form onSubmit={handleCreateUser} className=" container mx-auto px-6 py-8 md:px-8 max-w-lg border shadow-xl">
