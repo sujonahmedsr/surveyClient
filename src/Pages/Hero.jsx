@@ -49,7 +49,7 @@ const Hero = () => {
                     <p className="text-xl mb-8 text-black">  We value your feedback and strive to improve our services. Your opinions are essential for us to
                         understand what we are doing well and where we can make improvements. Please take a few moments
                         to complete this survey and share your thoughts.</p>
-                    <Link className="bg-blue-800 hover:bg-blue-900 transition duration-300 text-white font-bold py-2 px-4 rounded">
+                    <Link to={'/AllSurvey'} className="bg-blue-800 hover:bg-blue-900 transition duration-300 text-white font-bold py-2 px-4 rounded">
                         Start Survey
                     </Link>
                 </div>
