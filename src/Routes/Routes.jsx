@@ -9,44 +9,59 @@ import SignUp from "../Pages/SignUp";
 import AllSurvey from "../Pages/AllSurvey";
 import ContactUs from "../Pages/ContactUs";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
+import AllUsers from "../Pages/Dashboard/AllUsers";
 
-export const Routes = createBrowserRouter([{
-    path: '/',
-    element: <MainRoutes></MainRoutes>,
-    errorElement: <ErrorPage></ErrorPage>,
-    children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-            path: '/Login',
-            element: <Login></Login>
-        },
-        {
-            path: '/SignUp',
-            element: <SignUp></SignUp>
-        },
-        {
-            path: '/AllSurvey',
-            element: <AllSurvey></AllSurvey>,
-        },
-        {
-            path: '/sureveyDetails/:id',
-            element: <PrivateRoutes>
-                <SurveyDetails></SurveyDetails>
-            </PrivateRoutes>,
-            loader: ({params}) => fetch(`http://localhost:5000/survey/${params.id}`)
-        },
-        {
-            path: '/Prizing',
-            element: <Prizing></Prizing>
-        },
-        {
-            path: '/ContactUs',
-            element: <PrivateRoutes>
-                <ContactUs></ContactUs>
-            </PrivateRoutes>
-        }
-    ]
-}])
+export const Routes = createBrowserRouter([
+    {
+        path: '/',
+        element: <MainRoutes></MainRoutes>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/Login',
+                element: <Login></Login>
+            },
+            {
+                path: '/SignUp',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/AllSurvey',
+                element: <AllSurvey></AllSurvey>,
+            },
+            {
+                path: '/sureveyDetails/:id',
+                element: <PrivateRoutes>
+                    <SurveyDetails></SurveyDetails>
+                </PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/survey/${params.id}`)
+            },
+            {
+                path: '/Prizing',
+                element: <Prizing></Prizing>
+            },
+            {
+                path: '/ContactUs',
+                element: <PrivateRoutes>
+                    <ContactUs></ContactUs>
+                </PrivateRoutes>
+            }
+        ],
+
+    },
+    {
+        path: '/Dashboard',
+        element: <AdminDashboard></AdminDashboard>,
+        children: [
+            {
+                // path: '/Dashboard/allUsers',
+                // element: <AllUsers></AllUsers>
+            }
+        ]
+    }
+])
