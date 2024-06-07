@@ -10,6 +10,7 @@ import useAuth from "../AuthProvider/useAuth";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import noUser from '../assets/images/noUser.png'
+import { Helmet } from "react-helmet";
 
 const SurveyDetails = () => {
     let { _id, category, created_at, description, details, image, title, votes } = useLoaderData();
@@ -68,6 +69,9 @@ const SurveyDetails = () => {
 
     return (
         <div className="py-28 container mx-auto px-4">
+            <Helmet>
+                <title>Details Of {title}</title>
+            </Helmet>
             <Link to={-1} className="text-base flex items-center gap-2 text-blue-800 hover:text-blue-700 font-semibold py-4"><TbArrowBackUp className="text-2xl"></TbArrowBackUp> Go Back</Link>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
                 <div>

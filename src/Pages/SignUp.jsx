@@ -7,6 +7,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { auth } from "../firebase/Firebase";
 import useAuth from "../AuthProvider/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
@@ -58,6 +59,9 @@ const SignUp = () => {
     if(user) return 
     return (
         <div className="py-24 px-3">
+            <Helmet>
+                <title>SurveySky || Sign Up</title>
+            </Helmet>
             <form onSubmit={handleCreateUser} className=" container mx-auto px-6 py-8 md:px-8 max-w-lg border shadow-xl">
             <div className="text-center">
                     <Link to={'/'} className='text-2xl font-black text-blue-800 '>SurveySky <span className="font-medium">(Home)</span></Link>

@@ -39,7 +39,7 @@ export const Routes = createBrowserRouter([
                 element: <PrivateRoutes>
                     <SurveyDetails></SurveyDetails>
                 </PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://survey-crud.vercel.app/survey/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/survey/${params.id}`)
             },
             {
                 path: '/Prizing',

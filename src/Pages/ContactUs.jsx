@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet";
 import useAuth from "../AuthProvider/useAuth";
 
 const ContactUs = () => {
     const { user } = useAuth()
     return (
         <div className="py-24 px-3 container mx-auto">
+            <Helmet>
+                <title>SurveySky || Contact Us</title>
+            </Helmet>
             <div className='relative'>
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-full h-[50vh]" preserveAspectRatio="none" viewBox="0 0 1440 560">
                     <g mask="url(&quot;#SvgjsMask1416&quot;)" fill="none">

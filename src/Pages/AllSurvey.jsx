@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import useSurvey from "../Hooks/useSurvey";
 import { FadeLoader } from "react-spinners";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const AllSurvey = () => {
     const [survey, isPending] = useSurvey()
@@ -40,6 +41,9 @@ const AllSurvey = () => {
     }
     return (
         <div className="py-32 px-4 container mx-auto">
+            <Helmet>
+                <title>SurveySky || All Survey</title>
+            </Helmet>
             {
                 isPending && <div className="absolute top-1/2 left-1/2">
                     <FadeLoader color="#36d7b7" width={15} />

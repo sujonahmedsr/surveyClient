@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import useAuth from "../AuthProvider/useAuth";
+import { Helmet } from "react-helmet";
 
 const Prizing = () => {
     const { user } = useAuth()
     return (
         <div className="container mx-auto px-4 pt-32 pb-5">
+            <Helmet>
+                <title>SurveySky || Prizing</title>
+            </Helmet>
             <div className="text-center ">
                 <h1 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl text-blue-800">Choose a plan that works for you</h1>
             </div>
@@ -21,7 +25,7 @@ const Prizing = () => {
                                 </button>
                             </Link>
                                 :
-                                <Link>
+                                <Link to={'/SignUp'}>
                                     <button className="w-full py-3 rounded-lg bg-blue-800 text-white font-bold text-xl">
                                         SIGN UP
                                     </button>
@@ -63,7 +67,7 @@ const Prizing = () => {
                                 </button>
                             </Link>
                                 :
-                                <Link>
+                                <Link to={'/SignUp'}>
                                     <button className="w-full py-3 rounded-lg bg-sky-600 text-white font-bold text-xl">
                                         SIGN UP
                                     </button>

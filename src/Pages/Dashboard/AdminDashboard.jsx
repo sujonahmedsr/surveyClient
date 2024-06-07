@@ -8,12 +8,16 @@ import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import AllUsers from "./AllUsers";
 import useAdmin from "../../Hooks/useAdmin";
+import { Helmet } from "react-helmet";
 const AdminDashboard = () => {
     const [show, setShow] = useState(false)
     const [isAdmin, isAdminLoading] = useAdmin();
     if(isAdminLoading) return <p>loading ....</p>
     return (
         <div className="flex">
+            <Helmet>
+                <title>Dashboard</title>
+            </Helmet>
             <h1 className="md:hidden block absolute top-5 left-5 cursor-pointer text-xl" onClick={() => setShow(!show)}><FaBars></FaBars></h1>
             <div className={`bg-blue-900 text-white fixed min-h-screen py-20 px-10 ${show ? 'block' : 'hidden'} md:block relative`}>
                 <h1 className="md:hidden block absolute right-5 top-5 cursor-pointer text-xl" onClick={() => setShow(false)}><RxCross2 /></h1>
