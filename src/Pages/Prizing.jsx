@@ -15,11 +15,11 @@ const Prizing = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 <div className="border border-blue-300 hover:border-blue-800 transition duration-300 p-5 rounded-lg relative overflow-hidden">
                     <div className="text-center space-y-4">
-                        <h1 className="text-3xl font-bold text-gray-800">Team Advantage</h1>
-                        <p className="text-gray-500"><span className="text-2xl text-blue-800 font-semibold">$25</span>/ user / month</p>
+                        <h1 className="text-3xl font-bold text-gray-800">Advantage Pro User</h1>
+                        <p className="text-gray-500"><span className="text-2xl text-blue-800 font-semibold">$75</span>/ user / month</p>
                         <p className="text-gray-500">Starting at 3 users, billed annually</p>
                         {
-                            user ? <Link>
+                            user ? <Link to={'/payment'}>
                                 <button className="w-full mt-4 py-3 rounded-lg bg-blue-800 text-white font-bold text-xl">
                                     BUY NOW
                                 </button>
@@ -55,13 +55,13 @@ const Prizing = () => {
                 </div>
                 <div className="border border-sky-300 hover:border-sky-600 transition duration-300 p-5 rounded-lg relative overflow-hidden">
                     <div className="text-center space-y-4">
-                        <h1 className="text-3xl font-bold text-gray-800">Team Premier
+                        <h1 className="text-3xl font-bold text-gray-800">Premier Pro User
                         </h1>
                         <p className="text-gray-500"><span className="text-2xl text-sky-600 font-semibold">$75</span>/ user / month</p>
                         <p className="text-gray-500">Starting at 3 users, billed annually</p>
 
                         {
-                            user ? <Link>
+                            user ? <Link to={'/payment'}>
                                 <button className="w-full mt-4 py-3 rounded-lg bg-sky-600 text-white font-bold text-xl">
                                     BUY NOW
                                 </button>

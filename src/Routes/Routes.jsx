@@ -11,6 +11,7 @@ import ContactUs from "../Pages/ContactUs";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import Comments from "../Pages/Dashboard/Comments";
+import Payment from "../Pages/Dashboard/payment/Payment";
 
 export const Routes = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ export const Routes = createBrowserRouter([
                 element: <PrivateRoutes>
                     <ContactUs></ContactUs>
                 </PrivateRoutes>
+            },
+            {
+                path: '/payment',
+                element: <Payment></Payment>
             }
         ],
 
@@ -61,7 +66,7 @@ export const Routes = createBrowserRouter([
             {
                 path: '/Dashboard/comments',
                 element: <Comments></Comments>
-            }
+            },
         ]
     }
 ])
