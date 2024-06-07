@@ -4,7 +4,7 @@ import useAuth from "../AuthProvider/useAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://survey-crud.vercel.app'
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate()

@@ -7,9 +7,11 @@ import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import AllUsers from "./AllUsers";
+import useAdmin from "../../Hooks/useAdmin";
 const AdminDashboard = () => {
     const [show, setShow] = useState(false)
-
+    const [isAdmin, isAdminLoading] = useAdmin();
+    if(isAdminLoading) return <p>loading ....</p>
     return (
         <div className="flex">
             <h1 className="md:hidden block absolute top-5 left-5 cursor-pointer text-xl" onClick={() => setShow(!show)}><FaBars></FaBars></h1>
@@ -20,7 +22,8 @@ const AdminDashboard = () => {
                     <p className="text-xl font-semibold tracking-[10px]">surveysky</p>
                 </Link>
                 <div className="space-y-5 pt-10 font-semibold">
-                    <>
+                    {
+                        isAdmin ? <>
                         <NavLink className="flex items-center gap-2">
                             <FaUsers className="text-2xl"></FaUsers>
                             <button>ALL USERS</button>
@@ -33,7 +36,18 @@ const AdminDashboard = () => {
                             <MdPayments className="text-2xl"></MdPayments>
                             <button>ALL PAYMENTS</button>
                         </NavLink>
+                    </> : <>
+                        <NavLink className="flex items-center gap-2">
+                            <FaUsers className="text-2xl"></FaUsers>
+                            <button>My Survey</button>
+                        </NavLink>
+                        <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
+                            <FaBook className="text-2xl"></FaBook>
+                            <button>Comments</button>
+                        </NavLink>
                     </>
+
+                    }
 
                     <div className="divider bg-white h-1"></div>
 
@@ -53,7 +67,9 @@ const AdminDashboard = () => {
                 </div>
             </div>
             <div className="w-full p-10">
-                <AllUsers></AllUsers>
+                {
+                    isAdmin && <AllUsers></AllUsers>
+                }
                 <Outlet></Outlet>
             </div>
         </div>
