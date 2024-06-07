@@ -98,28 +98,41 @@ const CheckOutForms = () => {
                 <h1 className="text-3xl font-bold">Payment For Pro User</h1>
                 <p className="text-2xl font-semibold">Amount: $ {totalPrice}</p>
             </div>
-            <div>
+            <div className="space-y-4">
                 <div className="flex lg:flex-row flex-col items-center justify-between gap-7">
-                    <input className="w-full rounded" type="text" defaultValue={user?.displayName} />
-                    <input className="w-full rounded"  type="text" defaultValue={user?.email} />
+                    <div className="space-y-2">
+                        <label>Name</label>
+                        <input className="w-full rounded border-blue-400 " readOnly type="text" defaultValue={user?.displayName} />
+                    </div>
+                    <div className="space-y-2">
+                        <label>Amount</label>
+                        <input className="w-full rounded border-blue-400 " readOnly type="text" defaultValue={`Total Amount : $${totalPrice}`} />
+                    </div>
+                </div>
+                <div className="space-y-2">
+                    <label>Email</label>
+                    <input className="w-full rounded border-blue-400 " readOnly type="text" defaultValue={user?.email} />
                 </div>
             </div>
-            <CardElement className="border p-3 border-blue-300 rounded"
-                options={{
-                    style: {
-                        base: {
-                            fontSize: '16px',
-                            color: '#424770',
-                            '::placeholder': {
-                                color: '#aab7c4',
+            <div className="space-y-2">
+                <label htmlFor="">Card Number For Payments</label>
+                <CardElement className="border p-3 border-blue-300 rounded"
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
+                                },
+                            },
+                            invalid: {
+                                color: '#9e2146',
                             },
                         },
-                        invalid: {
-                            color: '#9e2146',
-                        },
-                    },
-                }}
-            />
+                    }}
+                />
+            </div>
             <button type="submit" className="px-6 py-2 rounded-md bg-blue-800 hover:bg-blue-700 mt-4 text-white" disabled={!stripe || !clientSecret}>
                 Pay
             </button>
