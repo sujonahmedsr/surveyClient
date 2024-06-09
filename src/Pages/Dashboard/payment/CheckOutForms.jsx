@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../../AuthProvider/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForms = () => {
     const stripe = useStripe()
@@ -13,6 +14,7 @@ const CheckOutForms = () => {
     const axiosSecure = useAxiosSecure()
     const [clientSecret, setClientSecret] = useState(null)
     const totalPrice = 75
+    const navigate = useNavigate()
     useEffect(() => {
         if (totalPrice > 0) {
             axiosSecure.post('/create-payment-intent', { price: totalPrice })
@@ -90,6 +92,7 @@ const CheckOutForms = () => {
                 showConfirmButton: false,
                 timer: 2000
             });
+            navigate('/Dashboard')
         }
     }
     return (

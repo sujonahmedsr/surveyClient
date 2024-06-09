@@ -12,6 +12,8 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import Comments from "../Pages/Dashboard/Comments";
 import Payment from "../Pages/Dashboard/payment/Payment";
+import AllPayments from "../Pages/Dashboard/AllPayments";
+import AllUsers from "../Pages/Dashboard/AllUsers";
 
 export const Routes = createBrowserRouter([
     {
@@ -40,7 +42,7 @@ export const Routes = createBrowserRouter([
                 element: <PrivateRoutes>
                     <SurveyDetails></SurveyDetails>
                 </PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/survey/${params.id}`)
+                loader: ({ params }) => fetch(`https://survey-crud.vercel.app/survey/${params.id}`)
             },
             {
                 path: '/Prizing',
@@ -67,6 +69,14 @@ export const Routes = createBrowserRouter([
                 path: '/Dashboard/comments',
                 element: <Comments></Comments>
             },
+            {
+                path: '/Dashboard/AllUsers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/Dashboard/AllPayments',
+                element: <AllPayments></AllPayments>
+            }
         ]
     }
 ])

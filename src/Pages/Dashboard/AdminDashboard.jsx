@@ -6,7 +6,6 @@ import { MdPayments } from "react-icons/md";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
-import AllUsers from "./AllUsers";
 import useAdmin from "../../Hooks/useAdmin";
 import { Helmet } from "react-helmet";
 const AdminDashboard = () => {
@@ -32,11 +31,11 @@ const AdminDashboard = () => {
                             <FaUsers className="text-2xl"></FaUsers>
                             <button>ALL USERS</button>
                         </NavLink>
-                        <NavLink className="flex items-center gap-2">
+                        <NavLink to={'/Dashboard/AllUsers'} className="flex items-center gap-2">
                             <FaBook className="text-2xl"></FaBook>
                             <button>MANAGE USERS</button>
                         </NavLink>
-                        <NavLink to={''} className="flex items-center gap-2">
+                        <NavLink to={'/Dashboard/AllPayments'} className="flex items-center gap-2">
                             <MdPayments className="text-2xl"></MdPayments>
                             <button>ALL PAYMENTS</button>
                         </NavLink>
@@ -71,9 +70,6 @@ const AdminDashboard = () => {
                 </div>
             </div>
             <div className="w-full p-10">
-                {
-                    isAdmin && <AllUsers></AllUsers>
-                }
                 <Outlet></Outlet>
             </div>
         </div>

@@ -22,7 +22,7 @@ const SurveyDetails = () => {
     const handleVote = () => {
         axiosPublic.patch(`/survey/${_id}`, votes)
             .then(res => {
-                setLike(res.data.matchedCount)
+                setLike(res.data)
                 setVote(vote + 1)
             })
     }
