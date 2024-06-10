@@ -3,7 +3,7 @@
 
 ## Programming hero Batch 9 assignment no 12 website name is: Survey Sky
 
-## Website Live Link here Netlify:   [Click to see Netlify][Click to see Firebase](https://hotel-fair.web.app)
+## Website Live Link here Netlify:   [Click to see Netlify](https://hotel-fair.web.app)
 
 ## Website Live Link here Firebase:   [Click to see Firebase](https://surveysky-c627d.web.app/)
 
