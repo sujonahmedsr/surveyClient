@@ -14,6 +14,7 @@ import Comments from "../Pages/Dashboard/Comments";
 import Payment from "../Pages/Dashboard/payment/Payment";
 import AllPayments from "../Pages/Dashboard/AllPayments";
 import AllUsers from "../Pages/Dashboard/AllUsers";
+import Surveyor from "../Pages/Dashboard/Surveyor";
 
 export const Routes = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ export const Routes = createBrowserRouter([
             {
                 path: '/Dashboard/AllPayments',
                 element: <AllPayments></AllPayments>
+            },
+            {
+                path: '/Dashboard/Surveyor',
+                element: <Surveyor></Surveyor>
             }
         ]
     }

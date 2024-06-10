@@ -1,7 +1,7 @@
 import { FaBook, FaUsers } from "react-icons/fa";
 import { IoMdHome, IoMdMenu } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { MdPayments } from "react-icons/md";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
@@ -9,9 +9,10 @@ import { RxCross2 } from "react-icons/rx";
 import useAdmin from "../../Hooks/useAdmin";
 import { Helmet } from "react-helmet";
 const AdminDashboard = () => {
+    const location = useLocation()
     const [show, setShow] = useState(false)
     const [isAdmin, isAdminLoading] = useAdmin();
-    if(isAdminLoading) return <p>loading ....</p>
+    if (isAdminLoading) return <p>loading ....</p>
     return (
         <div className="flex">
             <Helmet>
@@ -27,28 +28,32 @@ const AdminDashboard = () => {
                 <div className="space-y-5 pt-10 font-semibold">
                     {
                         isAdmin ? <>
-                        <NavLink className="flex items-center gap-2">
-                            <FaUsers className="text-2xl"></FaUsers>
-                            <button>ALL USERS</button>
-                        </NavLink>
-                        <NavLink to={'/Dashboard/AllUsers'} className="flex items-center gap-2">
-                            <FaBook className="text-2xl"></FaBook>
-                            <button>MANAGE USERS</button>
-                        </NavLink>
-                        <NavLink to={'/Dashboard/AllPayments'} className="flex items-center gap-2">
-                            <MdPayments className="text-2xl"></MdPayments>
-                            <button>ALL PAYMENTS</button>
-                        </NavLink>
-                    </> : <>
-                        <NavLink className="flex items-center gap-2">
-                            <FaUsers className="text-2xl"></FaUsers>
-                            <button>My Survey</button>
-                        </NavLink>
-                        <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
-                            <FaBook className="text-2xl"></FaBook>
-                            <button>Comments</button>
-                        </NavLink>
-                    </>
+                            <NavLink to={'/Dashboard/AllUsers'} className="flex items-center gap-2">
+                                <FaBook className="text-2xl"></FaBook>
+                                <button>MANAGE USERS</button>
+                            </NavLink>
+                            <NavLink to={'/Dashboard/AllPayments'} className="flex items-center gap-2">
+                                <MdPayments className="text-2xl"></MdPayments>
+                                <button>ALL PAYMENTS</button>
+                            </NavLink>
+                            <NavLink to={'/Dashboard/Surveyor'} className="flex items-center gap-2">
+                                <FaUsers className="text-2xl"></FaUsers>
+                                <button>Surveyor</button>
+                            </NavLink>
+                        </> : <>
+                            <NavLink to={'/Dashboard/Surveyor'} className="flex items-center gap-2">
+                                <FaUsers className="text-2xl"></FaUsers>
+                                <button>Surveyor</button>
+                            </NavLink>
+                            <NavLink className="flex items-center gap-2">
+                                <FaUsers className="text-2xl"></FaUsers>
+                                <button>My Survey</button>
+                            </NavLink>
+                            <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
+                                <FaBook className="text-2xl"></FaBook>
+                                <button>Comments</button>
+                            </NavLink>
+                        </>
 
                     }
 
@@ -70,6 +75,14 @@ const AdminDashboard = () => {
                 </div>
             </div>
             <div className="w-full p-10">
+                {location.pathname === '/Dashboard' ?
+                    isAdmin ?
+                    <h1 className="text-center text-3xl font-bold">Admin</h1>
+                    :
+                    <h1 className="text-center text-3xl font-bold">User</h1>
+                    :
+                    ''
+                }
                 <Outlet></Outlet>
             </div>
         </div>
