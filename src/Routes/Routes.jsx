@@ -15,6 +15,7 @@ import Payment from "../Pages/Dashboard/payment/Payment";
 import AllPayments from "../Pages/Dashboard/AllPayments";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import Surveyor from "../Pages/Dashboard/Surveyor";
+import MySurvey from "../Pages/Dashboard/MySurvey";
 
 export const Routes = createBrowserRouter([
     {
@@ -81,6 +82,10 @@ export const Routes = createBrowserRouter([
             {
                 path: '/Dashboard/Surveyor',
                 element: <Surveyor></Surveyor>
+            },
+            {
+                path: '/Dashboard/MySurvey',
+                element: <MySurvey></MySurvey>
             }
         ]
     }

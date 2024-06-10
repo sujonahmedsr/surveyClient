@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { MdPayments } from "react-icons/md";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa6";
+import { FaAddressBook, FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import useAdmin from "../../Hooks/useAdmin";
 import { Helmet } from "react-helmet";
@@ -40,13 +40,17 @@ const AdminDashboard = () => {
                                 <FaUsers className="text-2xl"></FaUsers>
                                 <button>Surveyor</button>
                             </NavLink>
+                            <NavLink to={'/Dashboard/MySurvey'} className="flex items-center gap-2">
+                                <FaAddressBook className="text-2xl"></FaAddressBook>
+                                <button>My Survey</button>
+                            </NavLink>
                         </> : <>
                             <NavLink to={'/Dashboard/Surveyor'} className="flex items-center gap-2">
                                 <FaUsers className="text-2xl"></FaUsers>
                                 <button>Surveyor</button>
                             </NavLink>
-                            <NavLink className="flex items-center gap-2">
-                                <FaUsers className="text-2xl"></FaUsers>
+                            <NavLink to={'/Dashboard/MySurvey'} className="flex items-center gap-2">
+                                <FaAddressBook className="text-2xl"></FaAddressBook>
                                 <button>My Survey</button>
                             </NavLink>
                             <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
