@@ -51,7 +51,7 @@ const AdminDashboard = () => {
                             </NavLink>
                             <NavLink to={'/Dashboard/MySurvey'} className="flex items-center gap-2">
                                 <FaAddressBook className="text-2xl"></FaAddressBook>
-                                <button>My Survey</button>
+                                <button>My Surveys</button>
                             </NavLink>
                             <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
                                 <FaBook className="text-2xl"></FaBook>
