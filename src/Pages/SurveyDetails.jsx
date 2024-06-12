@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { FaBookReader } from "react-icons/fa";
 import { CgCalendarDates } from "react-icons/cg";
 import { SlLike } from "react-icons/sl";
@@ -11,13 +11,27 @@ import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import noUser from '../assets/images/noUser.png'
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const SurveyDetails = () => {
     let { _id, category, created_at, description, details, image, title, votes } = useLoaderData();
     const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const [vote, setVote] = useState(votes)
     const [like, setLike] = useState(null)
+    const navigate = useNavigate()
+
+    const { data: users = [] } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/users')
+            return res.data
+        }
+    })
+
+    const isUserProUser = users.find(item => item.email === user?.email)
+    console.log(isUserProUser);
 
     const handleVote = () => {
         axiosPublic.patch(`/survey/${_id}`, votes)
@@ -34,6 +48,7 @@ const SurveyDetails = () => {
             return res.data
         }
     })
+
     const forSurveyComment = comments.filter(item => item.title === title)
     const [box, setBox] = useState(false)
     const handleBox = () => {
@@ -51,7 +66,9 @@ const SurveyDetails = () => {
             comment: comment,
             date: new Date()
         }
-        axiosPublic.post('/comments', userCoInfo)
+        
+        if(isUserProUser.role === 'Pro-user'){
+            axiosPublic.post('/comments', userCoInfo)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -65,6 +82,10 @@ const SurveyDetails = () => {
                     refetch()
                 }
             })
+        }else{
+            navigate('/payment')
+        }
+        
     }
 
     return (

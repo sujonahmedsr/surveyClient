@@ -16,11 +16,11 @@ const CheckOutForms = () => {
     const totalPrice = 75
     const navigate = useNavigate()
 
+
     useEffect(() => {
         if (totalPrice > 0) {
             axiosSecure.post('/create-payment-intent', { price: totalPrice })
                 .then(res => {
-                    console.log(res.data.clientSecret);
                     setClientSecret(res.data.clientSecret)
                 })
         }
@@ -83,6 +83,7 @@ const CheckOutForms = () => {
             date: new Date(),
             status: 'pending'
         }
+
         const res = await axiosSecure.post('/payments', payments)
         console.log(res);
         if (res.data?.insertedId) {
@@ -93,13 +94,15 @@ const CheckOutForms = () => {
                 showConfirmButton: false,
                 timer: 2000
             });
-            navigate('/survey')
+            navigate('/Dashboard')
         }
 
         axiosSecure.patch(`/users/${user?.email}`)
         .then(res => {
             console.log(res.data);
         })
+
+        
     }
     return (
         <form onSubmit={handleSubmit} className="space-y-4 p-5 border hover:border-blue-300 duration-800">
