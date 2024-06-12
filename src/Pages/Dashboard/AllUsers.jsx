@@ -94,6 +94,7 @@ const AllUsers = () => {
                                         <td className="text-lg">
                                             {
                                                 item.role === 'admin' ? 'admin' :
+                                                item.role ? <p>{item.role}</p> :
                                                     <FaUsers
                                                     onClick={() => handleAdmin(item)}
                                                      className="text-3xl cursor-pointer" />

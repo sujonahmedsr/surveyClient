@@ -15,6 +15,7 @@ const CheckOutForms = () => {
     const [clientSecret, setClientSecret] = useState(null)
     const totalPrice = 75
     const navigate = useNavigate()
+
     useEffect(() => {
         if (totalPrice > 0) {
             axiosSecure.post('/create-payment-intent', { price: totalPrice })
@@ -92,8 +93,13 @@ const CheckOutForms = () => {
                 showConfirmButton: false,
                 timer: 2000
             });
-            navigate('/Dashboard')
+            navigate('/survey')
         }
+
+        axiosSecure.patch(`/users/${user?.email}`)
+        .then(res => {
+            console.log(res.data);
+        })
     }
     return (
         <form onSubmit={handleSubmit} className="space-y-4 p-5 border hover:border-blue-300 duration-800">

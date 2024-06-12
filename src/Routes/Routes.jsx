@@ -59,7 +59,7 @@ export const Routes = createBrowserRouter([
             },
             {
                 path: '/payment',
-                element: <Payment></Payment>
+                element: <Payment></Payment>,
             }
         ],
 
