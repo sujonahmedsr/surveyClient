@@ -16,6 +16,7 @@ import AllPayments from "../Pages/Dashboard/AllPayments";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import Surveyor from "../Pages/Dashboard/Surveyor";
 import MySurvey from "../Pages/Dashboard/MySurvey";
+import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey";
 
 export const Routes = createBrowserRouter([
     {
@@ -86,6 +87,11 @@ export const Routes = createBrowserRouter([
             {
                 path: '/Dashboard/MySurvey',
                 element: <MySurvey></MySurvey>
+            },
+            {
+                path: '/Dashboard/UpdateSurvey/:id',
+                element: <UpdateSurvey></UpdateSurvey>,
+                loader: ({ params }) => fetch(`https://survey-crud.vercel.app/survey/${params.id}`)
             }
         ]
     }

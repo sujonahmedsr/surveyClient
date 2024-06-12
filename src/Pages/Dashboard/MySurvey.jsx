@@ -80,7 +80,7 @@ const MySurvey = () => {
                                             <td className="text-lg">{item.votes}</td>
                                             <th className="text-center">{item.created_at}</th>
                                             <td className="space-x-5 flex items-center text-2xl">
-                                                <Link><FaEdit /></Link>
+                                                <Link to={`/Dashboard/UpdateSurvey/${item._id}`}><FaEdit /></Link>
                                                 <Link onClick={()=>handleDeleteItem(item)}><MdDelete /></Link>
                                             </td>
                                         </tr>)
