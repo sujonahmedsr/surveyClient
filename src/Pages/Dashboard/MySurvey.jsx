@@ -1,14 +1,48 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../AuthProvider/useAuth";
 import useSurvey from "../../Hooks/useSurvey";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const MySurvey = () => {
     const { user } = useAuth()
-    const [survey] = useSurvey()
+    const [survey, isPending, refetch] = useSurvey()
+    const axiosPublic = useAxiosPublic()
     const mySurvey = survey.filter(item => item?.email == user?.email)
+    const handleDeleteItem = (item) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await axiosPublic.delete(`/survey/${item._id}`);
+                console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    // refetch to update the ui
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${item.title} has been deleted`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+        });
+    }
     return (
         <div className="space-y-5">
-
+            {
+                isPending && <p>Loading...</p>
+            }
             {
                 mySurvey.length > 0 ?
                     <>
@@ -26,6 +60,7 @@ const MySurvey = () => {
                                         <th>title</th>
                                         <th>votes</th>
                                         <th>date</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,6 +79,10 @@ const MySurvey = () => {
                                             </td>
                                             <td className="text-lg">{item.votes}</td>
                                             <th className="text-center">{item.created_at}</th>
+                                            <td className="space-x-5 flex items-center text-2xl">
+                                                <Link><FaEdit /></Link>
+                                                <Link onClick={()=>handleDeleteItem(item)}><MdDelete /></Link>
+                                            </td>
                                         </tr>)
                                     }
                                 </tbody>
