@@ -18,6 +18,7 @@ import Surveyor from "../Pages/Dashboard/Surveyor";
 import MySurvey from "../Pages/Dashboard/MySurvey";
 import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey";
 import SurveyorDashboard from "../Pages/SurveyorDashBoard/SurveyorDashboard";
+import Participated from "../Pages/Dashboard/Participated";
 
 export const Routes = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ export const Routes = createBrowserRouter([
             {
                 path: '/Dashboard/comments',
                 element: <Comments></Comments>
+            },
+            {
+                path: '/Dashboard/participated',
+                element: <Participated></Participated>
             },
             {
                 path: '/Dashboard/AllUsers',

@@ -1,4 +1,4 @@
-import { FaBook } from "react-icons/fa";
+import { FaBook, FaUsers } from "react-icons/fa";
 import { IoMdHome, IoMdMenu } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
@@ -61,8 +61,11 @@ const AdminDashboard = () => {
                                 <FaBook className="text-2xl"></FaBook>
                                 <button>My Comments</button>
                             </NavLink>
+                            <NavLink to={'/Dashboard/participated'} className="flex items-center gap-2">
+                                <FaUsers className="text-2xl"></FaUsers>
+                                <button>Participated</button>
+                            </NavLink>
                         </>
-
                     }
 
                     <div className="divider bg-white h-1"></div>
