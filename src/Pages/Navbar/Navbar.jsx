@@ -46,6 +46,11 @@ const Navbar = () => {
                                                 <p className="block px-4 py-2  text-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 ">Dashboard</p>
                                             </li>
                                         </Link>
+                                        <Link to={'/Surveyor'}>
+                                            <li>
+                                                <p className="block px-4 py-2  text-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 ">Surveyor</p>
+                                            </li>
+                                        </Link>
 
                                         <li onClick={handleLogout}>
                                             <a href="#" className="block px-4 py-2  text-blue-800 dark:hover:bg-gray-600 dark:text-gray-200 ">Sign out</a>

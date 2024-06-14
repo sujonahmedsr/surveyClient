@@ -17,6 +17,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers";
 import Surveyor from "../Pages/Dashboard/Surveyor";
 import MySurvey from "../Pages/Dashboard/MySurvey";
 import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey";
+import SurveyorDashboard from "../Pages/SurveyorDashBoard/SurveyorDashboard";
 
 export const Routes = createBrowserRouter([
     {
@@ -80,19 +81,33 @@ export const Routes = createBrowserRouter([
                 path: '/Dashboard/AllPayments',
                 element: <AllPayments></AllPayments>
             },
-            {
-                path: '/Dashboard/Surveyor',
-                element: <Surveyor></Surveyor>
-            },
-            {
-                path: '/Dashboard/MySurvey',
-                element: <MySurvey></MySurvey>
-            },
+            // {
+            //     path: '/Dashboard/Surveyor',
+            //     element: <Surveyor></Surveyor>
+            // },
+            // {
+            //     path: '/Dashboard/MySurvey',
+            //     element: <MySurvey></MySurvey>
+            // },
             {
                 path: '/Dashboard/UpdateSurvey/:id',
                 element: <UpdateSurvey></UpdateSurvey>,
                 loader: ({ params }) => fetch(`https://survey-crud.vercel.app/survey/${params.id}`)
             }
+        ]
+    },
+    {
+        path: '/Surveyor',
+        element: <SurveyorDashboard></SurveyorDashboard>,
+        children: [
+            {
+                path: '/Surveyor/Surveyor',
+                element: <Surveyor></Surveyor>
+            },
+            {
+                path: '/Surveyor/MySurvey',
+                element: <MySurvey></MySurvey>
+            },
         ]
     }
 ])
