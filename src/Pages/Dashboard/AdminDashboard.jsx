@@ -40,31 +40,19 @@ const AdminDashboard = () => {
                                 <MdPayments className="text-2xl"></MdPayments>
                                 <button>ALL PAYMENTS</button>
                             </NavLink>
-                            {/* <NavLink to={'/Dashboard/Surveyor'} className="flex items-center gap-2">
-                                <FaUsers className="text-2xl"></FaUsers>
-                                <button>Surveyor</button>
-                            </NavLink>
-                            <NavLink to={'/Dashboard/MySurvey'} className="flex items-center gap-2">
-                                <FaAddressBook className="text-2xl"></FaAddressBook>
-                                <button>My Survey</button>
-                            </NavLink> */}
+                           
                         </> : <>
-                            {/* <NavLink to={'/Dashboard/Surveyor'} className="flex items-center gap-2">
-                                <FaUsers className="text-2xl"></FaUsers>
-                                <button>Surveyor</button>
-                            </NavLink>
-                            <NavLink to={'/Dashboard/MySurvey'} className="flex items-center gap-2">
-                                <FaAddressBook className="text-2xl"></FaAddressBook>
-                                <button>My Surveys</button>
-                            </NavLink> */}
-                            <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
-                                <FaBook className="text-2xl"></FaBook>
-                                <button>My Comments</button>
-                            </NavLink>
+                            
                             <NavLink to={'/Dashboard/participated'} className="flex items-center gap-2">
                                 <FaUsers className="text-2xl"></FaUsers>
                                 <button>Participated</button>
                             </NavLink>
+
+                            <NavLink to={'/Dashboard/comments'} className="flex items-center gap-2">
+                                <FaBook className="text-2xl"></FaBook>
+                                <button>My Comments</button>
+                            </NavLink>
+                            
                         </>
                     }
 

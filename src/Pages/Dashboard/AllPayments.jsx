@@ -21,7 +21,7 @@ const AllPayments = () => {
                 <h1 className="text-3xl">Member All Payments</h1>
             </div>
             <div className="space-y-5">
-                <h1 className="text-2xl font-semibold">Total Users: {payments.length}</h1>
+                <h1 className="text-2xl font-semibold">Total Payments: {payments.length}</h1>
                 <div>
                     <div className="overflow-x-auto">
                         <table className="table rounded-lg">

@@ -9,14 +9,14 @@ const image_hosting_key = '803136a7497d91a1a1a5d7c2e6acac5b';
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const UpdateSurvey = () => {
-    const {title, category, description, votes, _id } = useLoaderData()
+    const { title, category, description, votes, _id } = useLoaderData()
     const startDate = new Date()
     const { register, handleSubmit } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const onSubmit = async (data) => {
         console.log(data)
-        
+
         // image upload to imgbb and then get an url
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -33,10 +33,10 @@ const UpdateSurvey = () => {
                 ccreated_at: new Date().toLocaleDateString(),
                 image: res.data.data.display_url,
             }
-        //     // 
+            //     // 
             const surveyRes = await axiosSecure.patch(`/surveys/${_id}`, SurveyDetails);
             console.log(surveyRes.data)
-            if(surveyRes.data.modifiedCount > 0){
+            if (surveyRes.data.modifiedCount > 0) {
                 // show success popup
                 Swal.fire({
                     position: "top-end",
@@ -44,20 +44,20 @@ const UpdateSurvey = () => {
                     title: `${data.title} is updated to the Survey.`,
                     showConfirmButton: false,
                     timer: 1500
-                  });
-                  
+                });
+
             }
         }
-        console.log( 'with image url', res.data);
+        console.log('with image url', res.data);
     };
-    
-    
+
+
     return (
         <div>
             <div className="text-center space-y-4">
-                            <p>--Survey--</p>
-                            <h1 className="text-3xl">Update Survey</h1>
-                        </div>
+                <p>--Survey--</p>
+                <h1 className="text-3xl">Update Survey</h1>
+            </div>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
@@ -99,7 +99,7 @@ const UpdateSurvey = () => {
                                 <span className="label-text">Votes*</span>
                             </label>
                             <input
-                            readOnly
+                                readOnly
                                 type="number"
                                 defaultValue={votes}
                                 placeholder="votes"
@@ -115,6 +115,7 @@ const UpdateSurvey = () => {
                         </div>
 
                     </div>
+                    
                     {/* recipe details */}
                     <div className="form-control">
                         <label className="label">
@@ -124,7 +125,7 @@ const UpdateSurvey = () => {
                     </div>
 
                     <div className="form-control w-full my-6">
-                        <input {...register('image', {required: true})} type="file" className="file-input w-full max-w-xs" />
+                        <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
 
                     <button className="px-6 py-3 text-white bg-blue-800 hover:bg-blue-700 duration-300 rounded-lg">

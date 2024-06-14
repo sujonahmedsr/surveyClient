@@ -5,6 +5,10 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../AuthProvider/useAuth";
+import scrn1 from '../../assets/screenshot/2024-05-21-21-35.png'
+import scrn2 from '../../assets/screenshot/2024-05-21-21-38-1.png'
+import scrn3 from '../../assets/screenshot/2024-05-21-21-38-2.png'
+import scrn4 from '../../assets/screenshot/2024-05-21-21-39.png'
 
 const image_hosting_key = '803136a7497d91a1a1a5d7c2e6acac5b';
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -116,7 +120,15 @@ const Surveyor = () => {
                         <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
 
-                    <button className="px-6 py-3 rounded-lg bg-blue-800 hover:bg-blue-700 duration-300 text-white font-semibold">
+                    <div className="space-y-2">
+                        <h1>Some question here :</h1>
+                        <img className="w-full" src={scrn1} alt="" />
+                        <img className="w-full" src={scrn2} alt="" />
+                        <img className="w-full" src={scrn3} alt="" />
+                        <img className="w-full" src={scrn4} alt="" />
+                    </div>
+
+                    <button className="px-6 py-3 rounded-lg bg-blue-800 hover:bg-blue-700 duration-300 text-white font-semibold mt-8">
                         Add Survey
                     </button>
                 </form>

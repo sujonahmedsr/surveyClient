@@ -80,7 +80,7 @@ const MySurvey = () => {
                                             <td className="text-lg">{item.votes}</td>
                                             <th className="text-center">{item.created_at}</th>
                                             <td className="space-x-5 flex items-center text-2xl">
-                                                <Link to={`/Dashboard/UpdateSurvey/${item._id}`}><FaEdit /></Link>
+                                                <Link to={`/Surveyor/UpdateSurvey/${item._id}`}><FaEdit /></Link>
                                                 <Link onClick={()=>handleDeleteItem(item)}><MdDelete /></Link>
                                             </td>
                                         </tr>)
@@ -93,7 +93,7 @@ const MySurvey = () => {
                     <div className="text-center space-y-5">
                         <h1 className="text-2xl font-bold">You have no creted survey. If you want to create a survey</h1>
                         <div>
-                            <Link to={'/Dashboard/Surveyor'} className="px-6 py-3 font-semibold bg-blue-800 hover:bg-blue-700 duration-300 text-white mr-5">Add Survey</Link>
+                            <Link to={'/Surveyor/Surveyor'} className="px-6 py-3 font-semibold bg-blue-800 hover:bg-blue-700 duration-300 text-white mr-5">Add Survey</Link>
                         </div>
                     </div>
             }

@@ -142,32 +142,37 @@ const SurveyDetails = () => {
                 </div>
             </div>
             <div className="py-10 space-y-5">
-                <div>
-                    <h1 className="text-3xl font-bold py-5 text-center">Some Questions Here: </h1>
-                </div>
-                <div className="space-y-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                    {
-                        questions.map((qstn, id) => <div key={id}>
-                            <h1 className="text-xl font-semibold">{id + 1}. {qstn.question}</h1>
-                            <div className="grid grid-cols-2 mt-5">
-                                {
-                                    qstn?.options ?
-                                        qstn?.options.map((op, id) =>
-                                            <div key={id} className="flex items-center mt-5 gap-3">
-                                                <span>⚪</span>
-                                                <h1>{op}</h1>
-                                            </div>
-                                        )
-                                        :
-                                        <div>
-                                            <h1 className="mt-5">{qstn.type}</h1>
-                                        </div>
-                                }
-                            </div>
-                        </div>)
-                    }
-
-                </div>
+                {
+                    questions ? <>
+                        <div>
+                            <h1 className="text-3xl font-bold py-5 text-center">{questions.length} Questions Here</h1>
+                        </div>
+                        <div className="space-y-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                            {
+                                questions.map((qstn, id) => <div key={id}>
+                                    <h1 className="text-xl font-semibold">{id + 1}. {qstn.question}</h1>
+                                    <div className="grid grid-cols-2 mt-5">
+                                        {
+                                            qstn?.options ?
+                                                qstn?.options.map((op, id) =>
+                                                    <div key={id} className="flex items-center mt-5 gap-3">
+                                                        <span>⚪</span>
+                                                        <h1>{op}</h1>
+                                                    </div>
+                                                )
+                                                :
+                                                <div>
+                                                    <h1 className="mt-5">{qstn.type}</h1>
+                                                </div>
+                                        }
+                                    </div>
+                                </div>)
+                            }
+                        </div>
+                    </>
+                        :
+                        <h1 className="text-3xl font-semibold text-center py-5">No Question on this survey</h1>
+                }
             </div>
             <div>
                 <h1 className="text-xl font-bold">Comments ({forSurveyComment.length})</h1>

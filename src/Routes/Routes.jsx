@@ -14,11 +14,14 @@ import Comments from "../Pages/Dashboard/Comments";
 import Payment from "../Pages/Dashboard/payment/Payment";
 import AllPayments from "../Pages/Dashboard/AllPayments";
 import AllUsers from "../Pages/Dashboard/AllUsers";
-import Surveyor from "../Pages/Dashboard/Surveyor";
-import MySurvey from "../Pages/Dashboard/MySurvey";
-import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey";
+// import Surveyor from "../Pages/Dashboard/Surveyor";
+// import MySurvey from "../Pages/Dashboard/MySurvey";
+// import UpdateSurvey from "../Pages/Dashboard/UpdateSurvey";
 import SurveyorDashboard from "../Pages/SurveyorDashBoard/SurveyorDashboard";
 import Participated from "../Pages/Dashboard/Participated";
+import Surveyor from "../Pages/SurveyorDashBoard/Surveyor";
+import MySurvey from "../Pages/SurveyorDashBoard/MySurvey";
+import UpdateSurvey from "../Pages/SurveyorDashBoard/UpdateSurvey";
 
 export const Routes = createBrowserRouter([
     {
@@ -71,12 +74,12 @@ export const Routes = createBrowserRouter([
         element: <AdminDashboard></AdminDashboard>,
         children: [
             {
-                path: '/Dashboard/comments',
-                element: <Comments></Comments>
-            },
-            {
                 path: '/Dashboard/participated',
                 element: <Participated></Participated>
+            },
+            {
+                path: '/Dashboard/comments',
+                element: <Comments></Comments>
             },
             {
                 path: '/Dashboard/AllUsers',
@@ -86,19 +89,6 @@ export const Routes = createBrowserRouter([
                 path: '/Dashboard/AllPayments',
                 element: <AllPayments></AllPayments>
             },
-            // {
-            //     path: '/Dashboard/Surveyor',
-            //     element: <Surveyor></Surveyor>
-            // },
-            // {
-            //     path: '/Dashboard/MySurvey',
-            //     element: <MySurvey></MySurvey>
-            // },
-            {
-                path: '/Dashboard/UpdateSurvey/:id',
-                element: <UpdateSurvey></UpdateSurvey>,
-                loader: ({ params }) => fetch(`https://survey-crud.vercel.app/survey/${params.id}`)
-            }
         ]
     },
     {
@@ -113,6 +103,11 @@ export const Routes = createBrowserRouter([
                 path: '/Surveyor/MySurvey',
                 element: <MySurvey></MySurvey>
             },
+            {
+                path: '/Surveyor/UpdateSurvey/:id',
+                element: <UpdateSurvey></UpdateSurvey>,
+                loader: ({ params }) => fetch(`https://survey-crud.vercel.app/survey/${params.id}`)
+            }
         ]
     }
 ])
